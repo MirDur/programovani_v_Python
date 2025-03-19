@@ -1,0 +1,198 @@
+"""
+Představ si situaci, že chceš napsat takový program, který ti umožní rezervovat jízdenky.
+Samozřejmě nepůjde o žádnou produkční verzi ale jednoduchý skript postavený na komunikaci uživatele a interpretu.
+Program bude umět:
+1. Pozdravit uživatele,
+2. Vypsat nabídku,
+3. Dovolit uživateli zadat vstupní data,
+4. Zpracovat vstupní data,
+5. Vypsat zpracovaná data.
+"""
+
+# 1/6 Vstupní údaje
+mesta = ["Praha", "Viden", "Olomouc", "Svitavy", "Zlin", "Ostrava"]
+ceny = (150, 200, 120, 120, 100, 180)
+mesta_a_ceny = {"Praha":150, "Viden":200, "Olomouc":120, "Svitavy":120, "Zlin":100, "Ostrava":180}
+cara = "=" * 35
+nabidka = """1 - Praha   | 150
+2 - Viden   | 200
+3 - Olomouc | 120
+4 - Svitavy | 120
+5 - Zlin    | 100
+6 - Ostrava | 180
+"""
+
+
+# 2/6 Pozdrav uživatele
+"""
+Očekávaný výstup:
+
+VITEJTE U NASI APLIKACE DESTINATIO!
+===================================
+"""
+# Zapiš pozdrav a odděl jej pomocnou proměnnou
+# Dílčí řešení>
+
+pozdrav = "VITEJTE U NASI APLIKACE DESTINATIO!"
+pocet_rovnitek = len("===================================")
+oddelovaci_rovnitka = "=" * pocet_rovnitek
+# print(pozdrav, oddelovaci_rovnitka, sep="\n")
+
+
+# 3/6 Vypsání nabídky
+"""
+Očekávaný výstup:
+
+VITEJTE U NASI APLIKACE DESTINATIO!
+===================================
+1 - Praha   | 150
+2 - Viden   | 200
+3 - Olomouc | 120
+4 - Svitavy | 120
+5 - Zlin    | 100
+6 - Ostrava | 180
+"""
+# Vypiš nabídku cílových destinací a odděl ji pomocnou proměnnou
+# Dílčí řešení>
+'''
+print(nabidka)
+'''
+
+
+# 4/6 Zadání vstupních dat od uživatele
+# Dovol uživateli zadat 'destinace', 'cele_jmeno', 'email', 'rok_narozeni' a doplň oddělovač
+
+'''
+Očekávaný výstup:
+
+<predchozi_ukoly>
+===================================
+CISLO DESTINACE: 1
+JMENO: Matous
+PRIJMENI: Holinka
+EMAIL: matous@matous.cz
+===================================
+'''
+
+# Moje a funkční řešení>
+'''
+cislo_destinace = int(input("Zadejte prosím číslo destinace (celé číslo od 1 do 6): "))
+krestni_jmeno_zakaznika = input("Zadejte prosím Vaše křestní jméno: ")
+prijmeni_zakaznika = input("Zadejte prosím Vaše příjmení: ")
+emailova_adresa = input("Zadejte prosím Vaši emailovou adresu: ")
+print()
+print("CISLO DESTINACE:", cislo_destinace)
+print("JMENO:", krestni_jmeno_zakaznika)
+print("PRIJMENI:", prijmeni_zakaznika)
+print("EMAIL:", emailova_adresa)
+print(oddelovaci_rovnitka)
+'''
+
+# 5/6 Zpracování dat
+# Zkus propojit stávající datový typ "mesta" a "destinace"
+'''
+Očekávaný výstup:
+
+<predchozi_ukoly>
+===================================
+CISLO DESTINACE: 2
+===================================
+Viden
+200
+===================================
+'''
+
+# index pro výběr prvku ze seznamů mesto a ceny>
+# cislo_destinace - 1
+
+# Moje a funkční řešení>
+'''
+if cislo_destinace == 1:
+    print(mesta[cislo_destinace-1], ceny[cislo_destinace -1], sep="\n")
+elif cislo_destinace == 2:
+    print(mesta[cislo_destinace - 1], ceny[cislo_destinace - 1], sep="\n")
+elif cislo_destinace == 3:
+    print(mesta[2], ceny[2], sep="\n")
+elif cislo_destinace == 4:
+    print(mesta[3], ceny[3], sep="\n")    
+elif cislo_destinace == 5:
+    print(mesta[4], ceny[4], sep="\n")    
+elif cislo_destinace == 6:
+    print(mesta[5], ceny[5], sep="\n")    
+else:
+    print("Vyberte prosím celé číslo od 1 do 6. A žádé jiné.")
+'''
+
+
+# 6/6 Výpis zpracovaných hodnot
+'''
+Očekávaný výstup:
+
+VITEJTE U NASI APLIKACE DESTINATIO!
+===================================
+1 - Praha   | 150
+2 - Viden   | 200
+3 - Olomouc | 120
+4 - Svitavy | 120
+5 - Zlin    | 100
+6 - Ostrava | 180
+===================================
+CISLO DESTINACE: 2
+JMENO: Matous
+PRIJMENI: Holinka
+EMAIL: matous@matous.cz
+===================================
+DEKUJI, Matous ZA OBJEDNAVKU,
+CIL. DESTINACE: Viden, CENA JIZDNEHO: 200,
+NA TVUJ MAIL matous@matous.cz JSME TI POSLALI LISTEK.
+==================================='
+'''
+
+# 1. pozdravit uživatele
+print("", pozdrav, oddelovaci_rovnitka, sep="\n")
+# 2. vypsat nabídku
+print(nabidka, oddelovaci_rovnitka, sep="\n")
+# 3. dovolit (umožnit) uživateli zadat vstupní data
+cislo_destinace = int(input("Zadejte prosím číslo destinace (celé číslo od 1 do 6): "))
+krestni_jmeno_zakaznika = input("Zadejte prosím Vaše křestní jméno: ")
+prijmeni_zakaznika = input("Zadejte prosím Vaše příjmení: ")
+emailova_adresa = input("Zadejte prosím Vaši emailovou adresu: ")
+# 4. zpracovat vstupní data
+print()
+print("CISLO DESTINACE:", cislo_destinace)
+print("JMENO:", krestni_jmeno_zakaznika)
+print("PRIJMENI:", prijmeni_zakaznika)
+print("EMAIL:", emailova_adresa)
+print(oddelovaci_rovnitka)
+
+# Co znamená řádek níže? Jaktože nehází žádnou chybu?
+("DEKUJI,", krestni_jmeno_zakaznika, "ZA OBJEDNAVKU,")
+
+# 5. vypsat zpracovaná data
+print("DEKUJI,", krestni_jmeno_zakaznika, "ZA OBJEDNAVKU,")
+
+'''    
+if cislo_destinace == 1:
+    print("CIL. DESTINACE:", mesta[cislo_destinace - 1], ", CENA JIZDNEHO:", ceny[cislo_destinace -1], ",")
+elif cislo_destinace == 2:
+    print("CIL. DESTINACE:", mesta[cislo_destinace - 1], ",", end=" ")
+    print("CENA JIZDNEHO:", ceny[cislo_destinace -1], ",")
+elif cislo_destinace == 3:
+    print("CIL. DESTINACE:", mesta[cislo_destinace - 1], ",", end=" ")
+    print("CENA JIZDNEHO:", ceny[cislo_destinace -1], ",")
+elif cislo_destinace == 4:
+    print("CIL. DESTINACE:", mesta[cislo_destinace - 1], ",", end=" ")
+    print("CENA JIZDNEHO:", ceny[cislo_destinace -1], ",")
+elif cislo_destinace == 5:
+    print("CIL. DESTINACE:", mesta[cislo_destinace - 1], ",", end=" ")
+    print("CENA JIZDNEHO:", ceny[cislo_destinace -1], ",")
+elif cislo_destinace == 6:
+    print("CIL. DESTINACE:", mesta[cislo_destinace - 1], ",", end=" ")
+    print("CENA JIZDNEHO:", ceny[cislo_destinace -1], ",")
+else:
+    print("Vyberte prosím celé číslo od 1 do 6. A žádé jiné.")
+'''
+
+print("CIL. DESTINACE:", mesta[cislo_destinace - 1], ", CENA JIZDNEHO:", ceny[cislo_destinace -1], ",")
+print("NA TVUJ MAIL", emailova_adresa, "JSME TI POSLALI LISTEK.")
+print(oddelovaci_rovnitka)

@@ -14,6 +14,8 @@ heslo = input("Zadejte prosím vaše heslo: ")
 # heslo_0
 if len(heslo) < 1:  print("Vynechal jsi pole s heslem!")
 # if not heslo: print("Vynechal jsi pole s heslem!")    
+# if not bool(heslo): print("Vynechal jsi pole s heslem!")    # obdoba podmínky na řádku výše
+# if not any(heslo):  print("Vynechal jsi pole s heslem!")
 
 # heslo_1
 elif heslo[0].isdigit():    print("Heslo nesmí začínat číselným znakem.") # číslice = číselný znak?
@@ -60,7 +62,7 @@ elif len(heslo) < 8:    print("Heslo musí obsahovat alespoň 8 znaků.")
 
 # heslo_5
 elif '@' in heslo:  print("Heslo nesmí obsahovat znak '@'.")
-#elif heslo.count('@') > 0:   print("Heslo nesmí obsahovat znak '@'.")
+# elif heslo.count('@') > 0:   print("Heslo nesmí obsahovat znak '@'.")
 # elif heslo.find('@') >= 0:   print("Heslo nesmí obsahovat znak '@'.")
 
 # elif heslo.find("@") != -1:   print('Heslo nesmí obsahovat \"@\"')
